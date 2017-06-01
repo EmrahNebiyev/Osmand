@@ -104,6 +104,10 @@ public class GPXUtilities {
 	}
 
 	public static class WptPt extends GPXExtensions implements LocationPoint {
+		// flags to create general segment
+		public boolean isFirstPointOfSegment = false;
+		public boolean isLastPointOfSegment = false;
+
 		public double lat;
 		public double lon;
 		public String name = null;
@@ -217,6 +221,8 @@ public class GPXUtilities {
 	}
 
 	public static class TrkSegment extends GPXExtensions {
+		public boolean isGeneralSegment = false;
+
 		public List<WptPt> points = new ArrayList<WptPt>();
 		private OsmandMapTileView view;
 
@@ -734,6 +740,26 @@ public class GPXUtilities {
 			return "cloudmade".equalsIgnoreCase(author);
 		}
 
+		public void addGeneralSegments() {
+			for (GPXUtilities.Track track : tracks) {
+				if (track.segments.get(0).isGeneralSegment) {
+					track.segments.remove(0);
+				}
+				GPXUtilities.TrkSegment generalSegment = new GPXUtilities.TrkSegment();
+				for(GPXUtilities.TrkSegment s : track.segments) {
+					if (s.points.size() == 0) {
+						continue;
+					}
+
+					List<WptPt> pointsOfSegment = new ArrayList<>(s.points);
+					pointsOfSegment.get(0).isFirstPointOfSegment = true;
+					pointsOfSegment.get(pointsOfSegment.size() - 1).isLastPointOfSegment = true;
+					generalSegment.points.addAll(pointsOfSegment);
+				}
+				generalSegment.isGeneralSegment = true;
+				track.segments.add(0, generalSegment);
+			}
+		}
 
 		public GPXTrackAnalysis getAnalysis(long fileTimestamp) {
 			GPXTrackAnalysis g = new GPXTrackAnalysis();

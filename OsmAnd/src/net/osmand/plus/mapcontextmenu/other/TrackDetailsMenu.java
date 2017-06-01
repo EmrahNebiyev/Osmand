@@ -186,11 +186,15 @@ public class TrackDetailsMenu {
 					}
 				}
 			} else {
+				double distanceOfPreviousSegment = 0;
 				float distance = pos * dataSet.getDivX();
 				for (WptPt p : segment.points) {
-					if (p.distance >= distance) {
+					if (p.distance + distanceOfPreviousSegment >= distance && !p.isFirstPointOfSegment) {
 						wpt = p;
 						break;
+					}
+					if (p.isLastPointOfSegment) {
+						distanceOfPreviousSegment = p.distance;
 					}
 				}
 			}

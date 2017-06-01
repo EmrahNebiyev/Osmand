@@ -1265,8 +1265,10 @@ public class AvailableGPXFragment extends OsmandExpandableListFragment {
 				} else {
 					gpxFile = GPXUtilities.loadGPXFile(getActivity(), gpxInfo.file);
 				}
+				gpxFile.addGeneralSegments();
 				gpxDisplayGroupList = selectedGpxHelper.collectDisplayGroups(gpxFile);
 			} else {
+				gpxInfo.gpx.addGeneralSegments();
 				gpxDisplayGroupList = selectedGpxHelper.collectDisplayGroups(gpxInfo.gpx);
 			}
 			List<GpxDisplayItem> items = null;
