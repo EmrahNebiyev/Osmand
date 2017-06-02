@@ -104,10 +104,6 @@ public class GPXUtilities {
 	}
 
 	public static class WptPt extends GPXExtensions implements LocationPoint {
-		// flags to create general segment
-		public boolean isFirstPointOfSegment = false;
-		public boolean isLastPointOfSegment = false;
-
 		public double lat;
 		public double lon;
 		public String name = null;
@@ -123,7 +119,8 @@ public class GPXUtilities {
 		public double hdop = Double.NaN;
 		public boolean deleted = false;
 		public int colourARGB = 0;                    // point colour (used for altitude/speed colouring)
-		public double distance = 0.0;                // cumulative distance, if in a track
+		public double segmentDistance = 0.0;
+		public double totalDistance = 0.0;// cumulative distance, if in a track
 
 		public WptPt() {
 		}
@@ -148,14 +145,6 @@ public class GPXUtilities {
 //			this.colourARGB = toCopy.colourARGB;
 //			this.distance = toCopy.distance;
 //		}
-
-		public void setDistance(double dist) {
-			distance = dist;
-		}
-
-		public double getDistance() {
-			return distance;
-		}
 
 		@Override
 		public int getColor() {
@@ -221,7 +210,7 @@ public class GPXUtilities {
 	}
 
 	public static class TrkSegment extends GPXExtensions {
-		public boolean isGeneralSegment = false;
+		public boolean generalSegment = false;
 
 		public List<WptPt> points = new ArrayList<WptPt>();
 		private OsmandMapTileView view;
@@ -479,7 +468,8 @@ public class GPXUtilities {
 						net.osmand.Location.distanceBetween(prev.lat, prev.lon, point.lat, point.lon, calculations);
 						totalDistance += calculations[0];
 						segmentDistance += calculations[0];
-						point.distance = segmentDistance;
+						point.segmentDistance = segmentDistance;
+						point.totalDistance = totalDistance;
 						timeDiff = (int)((point.time - prev.time) / 1000);
 
 						//Last resort: Derive speed values from displacement if track does not originally contain speed
@@ -742,7 +732,7 @@ public class GPXUtilities {
 
 		public void addGeneralSegments() {
 			for (GPXUtilities.Track track : tracks) {
-				if (track.segments.get(0).isGeneralSegment) {
+				if (track.segments.get(0).generalSegment) {
 					track.segments.remove(0);
 				}
 				GPXUtilities.TrkSegment generalSegment = new GPXUtilities.TrkSegment();
@@ -750,13 +740,9 @@ public class GPXUtilities {
 					if (s.points.size() == 0) {
 						continue;
 					}
-
-					List<WptPt> pointsOfSegment = new ArrayList<>(s.points);
-					pointsOfSegment.get(0).isFirstPointOfSegment = true;
-					pointsOfSegment.get(pointsOfSegment.size() - 1).isLastPointOfSegment = true;
-					generalSegment.points.addAll(pointsOfSegment);
+					generalSegment.points.addAll(s.points);
 				}
-				generalSegment.isGeneralSegment = true;
+				generalSegment.generalSegment = true;
 				track.segments.add(0, generalSegment);
 			}
 		}

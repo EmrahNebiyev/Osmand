@@ -363,7 +363,7 @@ public class ShowRouteInfoDialogFragment extends DialogFragment {
 				if (segment != null) {
 					float distance = gpxItem.chartHighlightPos * elevationDataSet.getDivX();
 					for (WptPt p : segment.points) {
-						if (p.distance >= distance) {
+						if (p.segmentDistance >= distance) {
 							wpt = p;
 							break;
 						}

@@ -954,7 +954,7 @@ public class TrackSegmentFragment extends OsmAndListFragment {
 				} else {
 					float distance = pos * dataSet.getDivX();
 					for (WptPt p : segment.points) {
-						if (p.distance >= distance) {
+						if (p.segmentDistance >= distance) {
 							wpt = p;
 							break;
 						}
@@ -1356,7 +1356,7 @@ public class TrackSegmentFragment extends OsmAndListFragment {
 						OrderedLineDataSet dataSet = (OrderedLineDataSet) ds.get(0);
 						float distance = gpxItem.chartHighlightPos * dataSet.getDivX();
 						for (WptPt p : segment.points) {
-							if (p.distance >= distance) {
+							if (p.segmentDistance >= distance) {
 								wpt = p;
 								break;
 							}
