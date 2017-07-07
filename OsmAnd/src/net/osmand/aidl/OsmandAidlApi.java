@@ -9,13 +9,17 @@ import android.os.ParcelFileDescriptor;
 import android.view.View;
 
 import net.osmand.IndexConstants;
+import net.osmand.aidl.favorite.AFavorite;
+import net.osmand.aidl.favorite.group.AFavoriteGroup;
 import net.osmand.aidl.gpx.ASelectedGpxFile;
 import net.osmand.aidl.maplayer.AMapLayer;
 import net.osmand.aidl.maplayer.point.AMapPoint;
 import net.osmand.aidl.mapmarker.AMapMarker;
 import net.osmand.aidl.mapwidget.AMapWidget;
+import net.osmand.data.FavouritePoint;
 import net.osmand.data.LatLon;
 import net.osmand.data.PointDescription;
+import net.osmand.plus.FavouritesDbHelper;
 import net.osmand.plus.GPXUtilities;
 import net.osmand.plus.GPXUtilities.GPXFile;
 import net.osmand.plus.GpxSelectionHelper.SelectedGpxFile;
@@ -23,6 +27,7 @@ import net.osmand.plus.MapMarkersHelper;
 import net.osmand.plus.MapMarkersHelper.MapMarker;
 import net.osmand.plus.OsmandApplication;
 import net.osmand.plus.activities.MapActivity;
+import net.osmand.plus.helpers.ColorDialogs;
 import net.osmand.plus.views.AidlMapLayer;
 import net.osmand.plus.views.MapInfoLayer;
 import net.osmand.plus.views.OsmandMapLayer;
@@ -343,6 +348,128 @@ public class OsmandAidlApi {
 			}
 		});
 		return control;
+	}
+
+	boolean reloadMap() {
+		refreshMap();
+		return true;
+	}
+
+	boolean addFavoriteGroup(AFavoriteGroup favoriteGroup) {
+		if (favoriteGroup != null) {
+			FavouritesDbHelper favoritesHelper = app.getFavorites();
+			List<FavouritesDbHelper.FavoriteGroup> groups = favoritesHelper.getFavoriteGroups();
+			for (FavouritesDbHelper.FavoriteGroup g : groups) {
+				if (g.name.equals(favoriteGroup.getName())) {
+					return false;
+				}
+			}
+			int color = 0;
+			if (!Algorithms.isEmpty(favoriteGroup.getColor())) {
+				color = ColorDialogs.getColorByTag(favoriteGroup.getColor());
+			}
+			favoritesHelper.addEmptyCategory(favoriteGroup.getName(), color, favoriteGroup.isVisible());
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	boolean removeFavoriteGroup(AFavoriteGroup favoriteGroup) {
+		if (favoriteGroup != null) {
+			FavouritesDbHelper favoritesHelper = app.getFavorites();
+			List<FavouritesDbHelper.FavoriteGroup> groups = favoritesHelper.getFavoriteGroups();
+			for (FavouritesDbHelper.FavoriteGroup g : groups) {
+				if (g.name.equals(favoriteGroup.getName())) {
+					favoritesHelper.deleteGroup(g);
+					return true;
+				}
+			}
+			return false;
+		} else {
+			return false;
+		}
+	}
+
+	boolean updateFavoriteGroup(AFavoriteGroup gPrev, AFavoriteGroup gNew) {
+		if (gPrev != null && gNew != null) {
+			FavouritesDbHelper favoritesHelper = app.getFavorites();
+			List<FavouritesDbHelper.FavoriteGroup> groups = favoritesHelper.getFavoriteGroups();
+			for (FavouritesDbHelper.FavoriteGroup g : groups) {
+				if (g.name.equals(gPrev.getName())) {
+					int color = 0;
+					if (!Algorithms.isEmpty(gNew.getColor())) {
+						color = ColorDialogs.getColorByTag(gNew.getColor());
+					}
+					favoritesHelper.editFavouriteGroup(g, gNew.getName(), color, gNew.isVisible());
+					return true;
+				}
+			}
+			return false;
+		} else {
+			return false;
+		}
+	}
+
+	boolean addFavorite(AFavorite favorite) {
+		if (favorite != null) {
+			FavouritesDbHelper favoritesHelper = app.getFavorites();
+			FavouritePoint point = new FavouritePoint(favorite.getLat(), favorite.getLon(), favorite.getName(), favorite.getCategory());
+			point.setDescription(favorite.getDescription());
+			int color = 0;
+			if (!Algorithms.isEmpty(favorite.getColor())) {
+				color = ColorDialogs.getColorByTag(favorite.getColor());
+			}
+			point.setColor(color);
+			point.setVisible(favorite.isVisible());
+			favoritesHelper.addFavourite(point);
+			refreshMap();
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	boolean removeFavorite(AFavorite favorite) {
+		if (favorite != null) {
+			FavouritesDbHelper favoritesHelper = app.getFavorites();
+			List<FavouritePoint> favorites = favoritesHelper.getFavouritePoints();
+			for (FavouritePoint f : favorites) {
+				if (f.getName().equals(favorite.getName()) && f.getCategory().equals(favorite.getCategory()) &&
+						f.getLatitude() == favorite.getLat() && f.getLongitude() == favorite.getLon()) {
+					favoritesHelper.deleteFavourite(f);
+					refreshMap();
+					return true;
+				}
+			}
+			return false;
+		} else {
+			return false;
+		}
+	}
+
+	boolean updateFavorite(AFavorite fPrev, AFavorite fNew) {
+		if (fPrev != null && fNew != null) {
+			FavouritesDbHelper favoritesHelper = app.getFavorites();
+			List<FavouritePoint> favorites = favoritesHelper.getFavouritePoints();
+			for (FavouritePoint f : favorites) {
+				if (f.getName().equals(fPrev.getName()) && f.getCategory().equals(fPrev.getCategory()) &&
+						f.getLatitude() == fPrev.getLat() && f.getLongitude() == fPrev.getLon()) {
+					if (fNew.getLat() != f.getLatitude() || fNew.getLon() != f.getLongitude()) {
+						favoritesHelper.editFavourite(f, fNew.getLat(), fNew.getLon());
+					}
+					if (!fNew.getName().equals(f.getName()) || !fNew.getDescription().equals(f.getDescription()) ||
+							!fNew.getCategory().equals(f.getCategory())) {
+						favoritesHelper.editFavouriteName(f, fNew.getName(), fNew.getCategory(), fNew.getDescription());
+					}
+					refreshMap();
+					return true;
+				}
+			}
+			return false;
+		} else {
+			return false;
+		}
 	}
 
 	boolean addMapMarker(AMapMarker marker) {

@@ -133,6 +133,8 @@ public class TrackSegmentFragment extends OsmAndListFragment {
 	private int defPointColor;
 	private Paint paintIcon;
 	private Bitmap pointSmall;
+	private GpxDisplayItem generalDisplayItem;
+	private View splitIntervalView;
 
 	private ImageView imageView;
 	private RotatedTileBox rotatedTileBox;
@@ -274,9 +276,25 @@ public class TrackSegmentFragment extends OsmAndListFragment {
 
 	private void updateHeader() {
 		imageView = (ImageView) headerView.findViewById(R.id.imageView);
+		imageView.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				LatLon location = new LatLon(generalDisplayItem.locationStart.lat,
+						generalDisplayItem.locationStart.lon);
+				final OsmandSettings settings = app.getSettings();
+				settings.setMapLocationToShow(location.getLatitude(), location.getLongitude(),
+						settings.getLastKnownMapZoom(),
+						new PointDescription(PointDescription.POINT_TYPE_WPT, generalDisplayItem.name),
+						false,
+						getRect()
+				);
+
+				MapActivity.launchMapActivityMoveToTop(getActivity());
+			}
+		});
 		final View splitColorView = headerView.findViewById(R.id.split_color_view);
 		final View divider = headerView.findViewById(R.id.divider);
-		final View splitIntervalView = headerView.findViewById(R.id.split_interval_view);
+		splitIntervalView = headerView.findViewById(R.id.split_interval_view);
 		final View colorView = headerView.findViewById(R.id.color_view);
 		final SwitchCompat vis = (SwitchCompat) headerView.findViewById(R.id.showOnMapToggle);
 		final ProgressBar progressBar = (ProgressBar) headerView.findViewById(R.id.mapLoadProgress);
@@ -447,6 +465,11 @@ public class TrackSegmentFragment extends OsmAndListFragment {
 			splitColorView.setVisibility(View.GONE);
 			divider.setVisibility(View.GONE);
 		}
+	}
+
+	public void updateSplitView() {
+		prepareSplitIntervalAdapterData();
+		updateSplitIntervalView(splitIntervalView);
 	}
 
 	private void refreshTrackBitmap() {
@@ -802,6 +825,9 @@ public class TrackSegmentFragment extends OsmAndListFragment {
 				pager = (WrapContentHeightViewPager) row.findViewById(R.id.pager);
 			}
 			GpxDisplayItem item = getItem(position);
+			if (position == 0) {
+				generalDisplayItem = item;
+			}
 			if (item != null) {
 				pager.setAdapter(new GPXItemPagerAdapter(tabLayout, item));
 				if (create) {
@@ -1157,12 +1183,22 @@ public class TrackSegmentFragment extends OsmAndListFragment {
 								view.findViewById(R.id.list_divider).setVisibility(View.GONE);
 								view.findViewById(R.id.start_end_time).setVisibility(View.GONE);
 							}
-							view.findViewById(R.id.details_view).setOnClickListener(new View.OnClickListener() {
+							view.findViewById(R.id.analyze_on_map).setOnClickListener(new View.OnClickListener() {
 								@Override
 								public void onClick(View v) {
-									openDetails(GPXTabItemType.GPX_TAB_ITEM_GENERAL);
+									openAnalyzeOnMap(GPXTabItemType.GPX_TAB_ITEM_GENERAL);
 								}
 							});
+							if (getGpx().showCurrentTrack) {
+								view.findViewById(R.id.split_interval).setVisibility(View.GONE);
+							} else {
+								view.findViewById(R.id.split_interval).setOnClickListener(new View.OnClickListener() {
+									@Override
+									public void onClick(View view) {
+										openSplitIntervalScreen();
+									}
+								});
+							}
 
 							break;
 						case GPX_TAB_ITEM_ALTITUDE:
@@ -1201,12 +1237,22 @@ public class TrackSegmentFragment extends OsmAndListFragment {
 								view.findViewById(R.id.list_divider).setVisibility(View.GONE);
 								view.findViewById(R.id.ascent_descent).setVisibility(View.GONE);
 							}
-							view.findViewById(R.id.details_view).setOnClickListener(new View.OnClickListener() {
+							view.findViewById(R.id.analyze_on_map).setOnClickListener(new View.OnClickListener() {
 								@Override
 								public void onClick(View v) {
-									openDetails(GPXTabItemType.GPX_TAB_ITEM_ALTITUDE);
+									openAnalyzeOnMap(GPXTabItemType.GPX_TAB_ITEM_ALTITUDE);
 								}
 							});
+							if (getGpx().showCurrentTrack) {
+								view.findViewById(R.id.split_interval).setVisibility(View.GONE);
+							} else {
+								view.findViewById(R.id.split_interval).setOnClickListener(new View.OnClickListener() {
+									@Override
+									public void onClick(View view) {
+										openSplitIntervalScreen();
+									}
+								});
+							}
 
 							break;
 						case GPX_TAB_ITEM_SPEED:
@@ -1244,12 +1290,22 @@ public class TrackSegmentFragment extends OsmAndListFragment {
 								view.findViewById(R.id.list_divider).setVisibility(View.GONE);
 								view.findViewById(R.id.time_distance).setVisibility(View.GONE);
 							}
-							view.findViewById(R.id.details_view).setOnClickListener(new View.OnClickListener() {
+							view.findViewById(R.id.analyze_on_map).setOnClickListener(new View.OnClickListener() {
 								@Override
 								public void onClick(View v) {
-									openDetails(GPXTabItemType.GPX_TAB_ITEM_SPEED);
+									openAnalyzeOnMap(GPXTabItemType.GPX_TAB_ITEM_SPEED);
 								}
 							});
+							if (getGpx().showCurrentTrack) {
+								view.findViewById(R.id.split_interval).setVisibility(View.GONE);
+							} else {
+								view.findViewById(R.id.split_interval).setOnClickListener(new View.OnClickListener() {
+									@Override
+									public void onClick(View view) {
+										openSplitIntervalScreen();
+									}
+								});
+							}
 							break;
 					}
 				}
@@ -1352,7 +1408,7 @@ public class TrackSegmentFragment extends OsmAndListFragment {
 			}
 		}
 
-		void openDetails(GPXTabItemType tabType) {
+		void openAnalyzeOnMap(GPXTabItemType tabType) {
 			LatLon location = null;
 			WptPt wpt = null;
 			gpxItem.chartTypes = null;
@@ -1413,6 +1469,14 @@ public class TrackSegmentFragment extends OsmAndListFragment {
 
 			MapActivity.launchMapActivityMoveToTop(getActivity());
 		}
+	}
+
+	void openSplitIntervalScreen() {
+		getMyActivity().getSupportFragmentManager()
+				.beginTransaction()
+				.replace(R.id.track_activity_layout, new SplitSegmentFragment())
+				.addToBackStack(SplitSegmentFragment.TAG)
+				.commit();
 	}
 
 	private class SplitTrackAsyncTask extends AsyncTask<Void, Void, Void> {

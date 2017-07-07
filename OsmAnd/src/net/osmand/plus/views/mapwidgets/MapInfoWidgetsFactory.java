@@ -150,7 +150,7 @@ public class MapInfoWidgetsFactory {
 			RulerMode mode = rulerMode.get();
 			if (mode == RulerMode.FIRST) {
 				return RULER_CONTROL_WIDGET_STATE_FIRST_MODE;
-			} else if (mode == RulerMode.SECOND){
+			} else if (mode == RulerMode.SECOND) {
 				return RULER_CONTROL_WIDGET_STATE_SECOND_MODE;
 			} else {
 				return RULER_CONTROL_WIDGET_STATE_EMPTY_MODE;
@@ -184,54 +184,57 @@ public class MapInfoWidgetsFactory {
 
 	public TextInfoWidget createRulerControl(final MapActivity map) {
 		final String title = map.getResources().getString(R.string.map_widget_show_ruler);
-        final TextInfoWidget rulerControl = new TextInfoWidget(map) {
-			boolean needNewLatLon;
-			long cacheMultiTouchEndTime;
+		final TextInfoWidget rulerControl = new TextInfoWidget(map) {
+			RulerControlLayer rulerLayer = map.getMapLayers().getRulerControlLayer();
+			LatLon cacheFirstTouchPoint = new LatLon(0, 0);
+			LatLon cacheSecondTouchPoint = new LatLon(0, 0);
 
 			@Override
 			public boolean updateInfo(DrawSettings drawSettings) {
 				RulerMode mode = map.getMyApplication().getSettings().RULER_MODE.get();
 				OsmandMapTileView view = map.getMapView();
 
-				if (cacheMultiTouchEndTime != view.getMultiTouchEndTime()) {
-					cacheMultiTouchEndTime = view.getMultiTouchEndTime();
-					needNewLatLon = true;
-				}
-				if (!view.isZooming() && view.isMultiTouch() || System.currentTimeMillis() - cacheMultiTouchEndTime < RulerControlLayer.DELAY) {
-					if (needNewLatLon) {
-						float x1 = view.getFirstTouchPointX();
-						float y1 = view.getFirstTouchPointY();
-						float x2 = view.getSecondTouchPointX();
-						float y2 = view.getSecondTouchPointY();
-						LatLon firstFinger = view.getCurrentRotatedTileBox().getLatLonFromPixel(x1, y1);
-						LatLon secondFinger = view.getCurrentRotatedTileBox().getLatLonFromPixel(x2, y2);
-						setDistanceText(firstFinger.getLatitude(), firstFinger.getLongitude(),
-								secondFinger.getLatitude(), secondFinger.getLongitude());
-						needNewLatLon = false;
+				if (rulerLayer.isShowTwoFingersDistance()) {
+					if (!cacheFirstTouchPoint.equals(view.getFirstTouchPointLatLon()) ||
+							!cacheSecondTouchPoint.equals(view.getSecondTouchPointLatLon())) {
+						cacheFirstTouchPoint = view.getFirstTouchPointLatLon();
+						cacheSecondTouchPoint = view.getSecondTouchPointLatLon();
+						setDistanceText(cacheFirstTouchPoint.getLatitude(), cacheFirstTouchPoint.getLongitude(),
+								cacheSecondTouchPoint.getLatitude(), cacheSecondTouchPoint.getLongitude());
 					}
 				} else if (mode == RulerMode.FIRST || mode == RulerMode.SECOND) {
 					Location currentLoc = map.getMyApplication().getLocationProvider().getLastKnownLocation();
 					LatLon centerLoc = map.getMapLocation();
 
 					if (currentLoc != null && centerLoc != null) {
-						setDistanceText(currentLoc.getLatitude(), currentLoc.getLongitude(),
-								centerLoc.getLatitude(), centerLoc.getLongitude());
+						if (map.getMapViewTrackingUtilities().isMapLinkedToLocation()) {
+							setDistanceText(0);
+						} else {
+							setDistanceText(currentLoc.getLatitude(), currentLoc.getLongitude(),
+									centerLoc.getLatitude(), centerLoc.getLongitude());
+						}
 					}
-					needNewLatLon = true;
 				} else {
 					setText(title, null);
-					needNewLatLon = true;
 				}
 				return true;
 			}
 
-            private void setDistanceText(double firstLat, double firstLon, double secondLat, double secondLon) {
-                float dist = (float) MapUtils.getDistance(firstLat, firstLon, secondLat, secondLon);
-                String distance = OsmAndFormatter.getFormattedDistance(dist, map.getMyApplication());
-                int ls = distance.lastIndexOf(' ');
-                setText(distance.substring(0, ls), distance.substring(ls + 1));
-            }
-        };
+			private void setDistanceText(float dist) {
+				calculateAndSetText(dist);
+			}
+
+			private void setDistanceText(double firstLat, double firstLon, double secondLat, double secondLon) {
+				float dist = (float) MapUtils.getDistance(firstLat, firstLon, secondLat, secondLon);
+				calculateAndSetText(dist);
+			}
+
+			private void calculateAndSetText(float dist) {
+				String distance = OsmAndFormatter.getFormattedDistance(dist, map.getMyApplication());
+				int ls = distance.lastIndexOf(' ');
+				setText(distance.substring(0, ls), distance.substring(ls + 1));
+			}
+		};
 
 		rulerControl.setText(title, null);
 		setRulerControlIcon(rulerControl, map.getMyApplication().getSettings().RULER_MODE.get());
@@ -272,8 +275,8 @@ public class MapInfoWidgetsFactory {
 		int bgLightLandId = R.drawable.btn_round;
 		int bgDarkLandId = R.drawable.btn_round_night;
 
-		int backBtnIconLightId = R.drawable.abc_ic_ab_back_mtrl_am_alpha;
-		int backBtnIconDarkId = R.drawable.abc_ic_ab_back_mtrl_am_alpha;
+		int backBtnIconLightId = R.drawable.abc_ic_ab_back_material;
+		int backBtnIconDarkId = R.drawable.abc_ic_ab_back_material;
 		int backBtnIconClrLightId = R.color.icon_color;
 		int backBtnIconClrDarkId = 0;
 

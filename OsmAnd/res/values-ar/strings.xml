@@ -516,7 +516,7 @@
 	<string name="shared_string_online_maps">الخرائط المتصلة بالانترنت</string>
 	<string name="online_map_settings_descr">ضبط مصادر الخرائط التجانبية على الإنترنت أو المخزنة مؤقتا</string>
 	<string name="auto_zoom_farthest">إلى مدى الطويل</string>
-	<string name="use_magnetic_sensor_descr">استخدم الحساس المغناطيسي لتحديد قيمة البوصلة بدلا من حساس الاتجاهات</string>
+	<string name="use_magnetic_sensor_descr">لقراءة البوصلة، استخدام المستشعر المغناطيسي بدلاً من مستشعر التوجيه</string>
     
 	
 	<string name="osmand_accessibility_description">هاته الأداة تجعل ميزات ذوي الإحتياجات الخاصة متاحة مباشرة في التطبيق. الأداة تسهل تعديل وتيرة الكلام لأصوات TTS، ضبط أداة توحيه واحهة الملاحة، إستخدام كرة تحكم لتعديل الزوم، أو استخدام خاصية الرد من نص إلى كلام لإعلان موقعك أثناء السياقة.</string>
@@ -527,7 +527,7 @@
 	<string name="prefs_plugins_descr">تفعّل الملحقات إعداداتٍ متقدمة ووظائف إضافية</string>
 	<string name="osm_editing_plugin_description">عبر هاته الأداة يمكن اسخدام التطبيق للمساهمات في الموقع كإنشاء أو تعديل أماكن الأشياء، والمساهمة بملفات GPX مسجلة. الموقع قائم بفعل المجتمع، وهو مشروع رسم خرائط على النطاق العام العالمي. للمزيد من التفاصيل رجاءا انظر https://openstreetmap.org. المشاركة الفعالة جد مقدرة، والمساهمات يمكن إنشاءها من التطبيق مباشرة إن قمت بإدخال معلوماتك الشخصية في التطبيق.</string>
 	<string name="vector_maps_may_display_faster_on_some_devices">عادة تعرض الخرائط الاتجاهية أسرع. ربما لا تعمل جيدا على بعض الأجهزة.</string>
-	<string name="play_commands_of_currently_selected_voice">شغل أوامر الصوت المحدد الحالي</string>
+	<string name="play_commands_of_currently_selected_voice">حدد صوتا واختبر عن طريق تشغيل مقاطع سريعة</string>
 	<string name="switch_to_raster_map_to_see">لا توجد خرائط متجهية محلية لهذا المكان. يمكنك تنزيل إحداها من الإعدادات (إدارة ملفات الخرائط)، أو التغيير لخرائط الانترنت (فعّل ملحق الخرائط عبر الإنترنت لهذا).</string>
 	<string name="shared_string_and">و</string>
     <string name="shared_string_or">أو</string>
@@ -635,7 +635,7 @@
     <string name="app_mode_motorcycle">دراجة نارية</string>
     <string name="app_mode_boat">قارب</string>
     <string name="app_mode_aircraft">الطائرات</string>
-    <string name="app_modes_choose_descr">اختيار أوضاع التطبيق المتوفرة</string>
+    <string name="app_modes_choose_descr">اختر أوضاع الاستخدام لتكون مرئية في التطبيق</string>
     <string name="app_modes_choose">ملامح التطبيق</string>
 	
     <string name="map_widget_map_rendering">تقديم الخريطة</string>
@@ -650,7 +650,7 @@
 \n
 \nالبيانات العالمية (ما بين 70 درجة شمالا و70 جنوبا) مبنية على مقاييس SRTM (مكوك رادار البعثة الطبوغرافية) و ASTER (الانبعاث الحراري الفضائي المتقدم والإنعكاس الإشعاعي)، أداة التصوير على متن Terra، القمر الصناعي الرئيسي لنظام رصد الأرض التابع لناسا. ASTER هو جهد تعاوني بين كل من وكالة ناسا، وزارة الاقتصاد اليابانية، التجارة والصناعة (METI)، ونظم الفضاء اليابانية (J-spacesystems).</string>
     
-    <string name="osmand_long_description_1000_chars"/>
+    <string name="osmand_long_description_1000_chars">OsmAnd (توجيهات OSM للملاحة الآلية) تطبيق ملاحة مفتوح المصدر مع إمكانية الوصول إلى مجموعة متنوعة من بيانات (OSM) العالمية. يمكن تخزين جميع بيانات الخريطة (خرائط فيكتور أو الخرائط الجزئية) في ذاكرة الهاتف للاستخدام دون اتصال بالشبكة. OsmAnd يقدم أيضا وظائف توجيه سواء كنت متصل بالشبكة أو لا بما في ذلك التوجيه الصوتي مع كل انعطاف. بعض الميزات الأساسية: - وظائف متكاملة في الوضع الغير متصل (خزن خرائط فيكتور أو الخرائط الجزئية في الجهاز) - خرائط فيكتور مدمجة للعالم كله متاحة دون اتصال - تحميل خرائط بلد أو منطقة مباشرة من التطبيق - امكانية تراكب عدة طبقات خريطة، كمسارات GPX أو مسارات الملاحة، نقاط الاهتمام(POI)، المفضلة، الخطوط الكنتورية، محطات وسائل النقل العامة، خرائط إضافية مع شفافية متخصصة - بحث محلي عن العناوين والأماكن (النقاط المهمة POI) - توجيه لمسافات متوسطة المدى دون الحاجة لاتصال - وضع السيارة ، الدراجة، و المشاة مع: - التبديل آلي اختياري لعرض وضع النهار/الليل - تكبير وتصغير اختياري للخريطة حسب السرعة - محاذاة خريطة اختيارية وفقا للبوصلة أو اتجاه الحركة - وجهة مسار اختيارية، عرض الحد الأقصى للسرعة، ميزة تحويل النص إلى كلام المحدودية المفروضة على هذه النسخة المجانية من أوسماند: - تنزيل محدود للخرائط - عدم امكانية الوصول إلى ويكيبيديا دون اتصال جاري تطويره ومشروعنا و التقدم المحرز فيه يعتمد على مساهمات مالية لتمويل التطوير، اختبار الوظائف الجديدة. يرجى شراء +OsmAnd أو تمويل ميزات محددة جديدة أو تقديم تبرع عام على مستوى osmand.net.</string>
 	<string name="osmand_extended_description_4000_chars">"
 ↵
 OsmAnd ( الاتجاهات OSM الملاحة الآلي ) هو عبارة عن خريطة وتطبيق الملاحة مع الوصول إلى الحرة، في جميع أنحاء العالم ، و أوبن ستريت ماب عالية الجودة ( OSM ) البيانات. يمكن تخزين جميع بيانات الخرائط على بطاقة ذاكرة جهازك \'ق للاستخدام دون اتصال . عبر جهازك \'ق نظام تحديد المواقع، OsmAnd يقدم التوجيه، مع التوجيه البصري و الصوتي، لسيارة ، دراجة ، و المشاة. جميع وظائف العمل الرئيسية سواء على الانترنت وغير متصل ( لا إنترنت المطلوبة ) . ↵
@@ -1698,7 +1698,7 @@ OsmAnd هو المصدر المفتوح و التي يجري تطويرها بن
     <string name="storage_directory_shared">الذّاكرة المشتركة</string>
     <string name="donations">التبرعات</string>
     <string name="osm_live_user_public_name">الاسم العموميّ</string>
-    <string name="osm_live_hide_user_name">لا تعرض اسمي في التّقارير</string>
+    <string name="osm_live_hide_user_name">لا تظهر اسمي في التقارير</string>
     <string name="osm_live_active">نشط</string>
     <string name="osm_live_not_active">خامل</string>
     <string name="osm_live_enter_email">الرجاء إدخل عنوان بريد إلكتروني صالح</string>
@@ -1721,7 +1721,7 @@ OsmAnd هو المصدر المفتوح و التي يجري تطويرها بن
     <string name="access_direction_audio_feedback">اتجاه صدى الصوت</string>
     <string name="use_osm_live_routing">الملاحة عبر OSM Live</string>
     <string name="access_no_destination">لم يتم تعيين الوجهة</string>
-    <string name="access_disable_wrong_direction_recalc_descr">"منع إعادة الحساب التلقائي للمسار عند السير في  اتجاه خاطئ"</string>
+    <string name="access_disable_wrong_direction_recalc_descr">يمنع إعادة الحساب التلقائي للطريق أثناء الانتقال للاتجاه المعاكس</string>
     <string name="access_default_color">اللون الافتراضي</string>
     <string name="access_category_choice">اختر فئة</string>
     <string name="access_hint_enter_name">أدخل الاسم</string>
@@ -1786,7 +1786,7 @@ OsmAnd هو المصدر المفتوح و التي يجري تطويرها بن
     <string name="plugin_settings">ملحقات</string>
     <string name="plugins_menu_group">ملحقات</string>
     <string name="show_free_version_banner">إظهار شريط ”نسخة مجانية“</string>
-    <string name="show_free_version_banner_description">حتى و إن كنت قد دفعت النسخة ، يمكنك استظهار شعار ”نسخة مجانية“</string>
+    <string name="show_free_version_banner_description">عرض شعار النسخة المجانية حتى في النسخة المدفوعة</string>
     <string name="rendering_value_red_name">أحمر</string>
     <string name="rendering_value_translucent_red_name">أحمر شفاف</string>
     <string name="rendering_value_lightblue_name">أزرق فاتح</string>
@@ -1807,9 +1807,9 @@ OsmAnd هو المصدر المفتوح و التي يجري تطويرها بن
     <string name="access_direction_audio_feedback_descr">اشر صوتيا عن اتجاه نقطة الوصول</string>
     <string name="access_direction_haptic_feedback_descr">اشر عن اتجاه نقطة الهدف بالاهتزاز</string>
     <string name="use_osm_live_routing_description">تمكين الملاحة لتغييرات OSM Live (تجريبي)</string>
-	<string name="access_disable_offroute_recalc">لا تغير المسار عندما تكون خارج الطريق</string>
-    <string name="access_disable_offroute_recalc_descr">منع إعادة الحساب التلقائي للمسار عندما تبتعد قليلا عن الطريق الصحيح</string>
-    <string name="access_disable_wrong_direction_recalc">لا تغير المسار باتجاه خاطئ</string>
+	<string name="access_disable_offroute_recalc">عدم اعادة حساب الطريق بعد مغادرته</string>
+    <string name="access_disable_offroute_recalc_descr">يمنع إعادة الحساب التلقائي للطريق بعدما تكون قد غادرته</string>
+    <string name="access_disable_wrong_direction_recalc">عدم إعادة حساب الطريق للاتجاه المعاكس</string>
     <string name="access_smart_autoannounce">الإخطار الآلي الذكي</string>
     <string name="access_smart_autoannounce_descr">الإشعار فقط عند تغير الوجهة نحو نقطة الهدف</string>
     <string name="access_autoannounce_period">مهلة الإخطار الآلي</string>
@@ -1982,7 +1982,7 @@ OsmAnd هو المصدر المفتوح و التي يجري تطويرها بن
     <string name="osmo_start_service">خدمة أوسمو OsMo</string>
     <string name="routing_attr_avoid_borders_name">منع تخطي الحدود</string>
     <string name="impassable_road_desc">حدد الطرق التي تريد تجنبها أثناء التنقل</string>
-    <string name="search_categories">الفئات</string>
+    <string name="search_categories">فئات</string>
     <string name="shared_string_near">بالقرب من</string>
     <string name="route_tslr">در قليلا إلى اليمين ثم واصل</string>
     <string name="route_tsll">در قليلا إلى اليسار ثم واصل</string>
@@ -2082,7 +2082,7 @@ OsmAnd هو المصدر المفتوح و التي يجري تطويرها بن
     <string name="rendering_value_purple_name">أرجواني</string>
     <string name="light_theme">فاتح</string>
     <string name="lang_sh">الكرواتية-الصربية</string>
-    <string name="lang_az">الأزيرية</string>
+    <string name="lang_az">الأذربيجانية</string>
     <string name="lang_ta">التاميلية</string>
     <string name="lang_ml">المالايلامية</string>
     <string name="lang_es_us">الإسبانية (أمريكا)</string>
@@ -2213,7 +2213,7 @@ OsmAnd هو المصدر المفتوح و التي يجري تطويرها بن
 \nوغيرها…</string>
     <string name="dist_away_from_my_location">ابحث %1$s بعيدا</string>
     <string name="show_on_map">اظهر على الخريطة</string>
-    <string name="share_history_subject">تمت مشاركته بـ OsmAnd</string>
+    <string name="share_history_subject">تمت مشاركته عبر OsmAnd</string>
     <string name="route_general_information">المسافة الإجمالية %1$s، مدة السفر %2$d سا و %3$d د.</string>
     <string name="back_to_search">العودة إلى البحث</string>
     <string name="consider_turning_polygons_off">من المستحسن إيقاف عرض المضلعات.</string>
@@ -2266,7 +2266,7 @@ OsmAnd هو المصدر المفتوح و التي يجري تطويرها بن
     <string name="srtm_plugin_disabled">الخطوط الكفافية معطلة</string>
     <string name="nm">بحاجة إلى معلومات أكثر</string>
     <string name="nm_h">ميل بحري/ساعة</string>
-    <string name="simulate_your_location_descr">"محاكاة باستخدام طريق مقاس أو تسجيل GPX "</string>
+    <string name="simulate_your_location_descr">محاكاة موقعك باستخدام طريق مقاس أو مسار GPX مسجل</string>
     <string name="routing_attr_avoid_shuttle_train_name">تجنب قطار المدينة</string>
     <string name="routing_attr_avoid_shuttle_train_description">تجنب قطار المدينة</string>
     <string name="traffic_warning_hazard">خطر</string>
@@ -2427,7 +2427,7 @@ OsmAnd هو المصدر المفتوح و التي يجري تطويرها بن
     <string name="search_nearby">بحث بالقرب</string>
     <string name="opening_hours_not_supported">نمط ساعات العمل غير متاح التعديل</string>
     <string name="transport_search_after">المسار اللاحق للرحلة</string>
-    <string name="use_fast_recalculation_desc">حساب الجزء الأول فقط من الطريق للرحلات الطويلة</string>
+    <string name="use_fast_recalculation_desc">للرحلات الطويلة، أعد حساب الجزء الأول من الطريق فقط</string>
     <string name="shared_string_undo">إلغاء</string>
     <string name="offline_maps_and_navigation">خرائط محلية
 وملاحة</string>
@@ -2496,8 +2496,8 @@ OsmAnd هو المصدر المفتوح و التي يجري تطويرها بن
     <string name="replace_favorite_confirmation">هل أنت متأكد من أنك تريد استبدال المفضلة %1$s؟</string>
     <string name="clear_tile_data">مسح كافة البيانات الجزئية</string>
     <string name="update_all_maps_now">هل تريد تحديث كافة الخرائط الآن؟</string>
-    <string name="no_update_info_desc">لا تعين أية تحديثات حول الإصدارات الجديدة، أو التخفيضات متعلقة بـ Osmand</string>
-    <string name="no_update_info">عدم إظهار التحديثات</string>
+    <string name="no_update_info_desc">لا تتحقق من وجود تحديثات الإصدار أو الخصومات المتعلقة بالتطبيق</string>
+    <string name="no_update_info">لا تظهر التحديثات</string>
     <string name="skip_map_downloading">تخطي تنزيل الخرائط</string>
     <string name="skip_map_downloading_desc">ليس لديك أي خريطة محلية مثبتة. يمكنك اختيار خريطة من اللائحة أو تنزيل خرائط لاحقاً عبر القائمة - %1$s.</string>
     <string name="search_another_country">حدد منطقة أخرى</string>
@@ -2512,7 +2512,7 @@ OsmAnd هو المصدر المفتوح و التي يجري تطويرها بن
     <string name="give_permission">إعطاء الإذن</string>
     <string name="allow_access_location">الإذن بالوصول إلى الموقع</string>
     <string name="first_usage_greeting">أحصل على التوجيهات واكتشف أماكن جديدة دون إنترنت</string>
-    <string name="search_my_location">البحث في موقعي</string>
+    <string name="search_my_location">ابحث عن موقعي</string>
     <string name="get_for">تحصل عليه بـ %1$s</string>
     <string name="get_for_month">تحصل عليه بـ %1$s للشهر</string>
     <string name="osm_live_banner_desc">تحصل على عدد غير محدود من تنزيلات الخرائط والتحديثات في الشهر : أسبوعيا، يوميا أو كل ساعة.</string>
@@ -2548,11 +2548,11 @@ OsmAnd هو المصدر المفتوح و التي يجري تطويرها بن
     <string name="christmas_poi">POI عيد الميلاد</string>
     <string name="rendering_attr_contourColorScheme_description">نظام ألوان المعالم المحيطية</string>
     <string name="save_track_min_speed">تسجيل السرعة الأدنى</string>
-    <string name="save_track_min_speed_descr">اختر السرعة الأدنى لبذأ تشغيل التسجيل</string>
-    <string name="save_track_min_distance">تسجيل كشف الحركة</string>
-    <string name="save_track_min_distance_descr">اختر حد المسافة الأدنى من آخر موقع لنقطة تريد تسجيلها</string>
+    <string name="save_track_min_speed_descr">عامل التصفية: حدد السرعة الأدنى ليتم تسجيل النقطة</string>
+    <string name="save_track_min_distance">تسجيل الحد الأدنى للإزاحة</string>
+    <string name="save_track_min_distance_descr">عامل التصفية: حدد المسافة الأدنى من آخر موقع لنقطة ليتم تسجيلها</string>
     <string name="save_track_precision">تسجيل حد الدقة الأدنى</string>
-    <string name="save_track_precision_descr">اختر حد دقة التسجيل الأدنى لنقطة تريد تسجيلها</string>
+    <string name="save_track_precision_descr">اختر حد الأدنى للدقة لنقطة تريد تسجيلها</string>
     <string name="shared_string_continue">واصل</string>
     <string name="shared_string_pause">إيقاف</string>
     <string name="shared_string_trip">رحلة</string>
@@ -2595,7 +2595,7 @@ OsmAnd هو المصدر المفتوح و التي يجري تطويرها بن
           3. كل السلاسل أو السترينجز المنشأة/المعدلة  التي تم إنشاؤها متواجدة في الجزء العلوي من الملف (لتسهيل ايجاد ما هو مترجم).
      من فضلك: إلقاء نظرة على http://code.google.com/p/osmand/wiki/UIConsistency، قد تحسن من عملك وعملنا :-) شكرا - هاردي"</string>
     <string name="show_legacy_search">إظهار طريقة البحث القديمة</string>
-    <string name="show_legacy_search_desc">تفعيل البحث القديم في قائمة الدرج</string>
+    <string name="show_legacy_search_desc">إضافة البحث المتعمق في قائمة الدرج</string>
     <string name="routing_attr_allow_motorway_name">الطريق السريع مسموح</string>
     <string name="routing_attr_allow_motorway_description">الطريق السريع مسموح</string>
     <string name="legacy_search">بحث موروث</string>
@@ -2813,9 +2813,9 @@ OsmAnd هو المصدر المفتوح و التي يجري تطويرها بن
     <string name="srtm_menu_download_descr">لعرض الخطوط الكنتورية على الخريطة، تحتاج إلى تحميل خريطة الخط الكنتوري لهذه المنطقة.</string>
     <string name="show_from_zoom_level">عرض من مستوى التكبير/التصغير</string>
     <string name="display_zoom_level">عرض مستوى التكبير/التصغير: %1$s</string>
-    <string name="animate_my_location">تفعيل حركة الموقع الخاص بي</string>
+    <string name="animate_my_location">قم بتحريك موقعي</string>
     <string name="srtm_purchase_header">لمشاهدة الخطوط الكنتورية على الخريطة، أنت بحاجة لشراء وتثبيت البرنامج المساعد للخطوط الكنتورية</string>
-    <string name="animate_my_location_desc">تفعيل حركة موقعي أثناء الملاحة</string>
+    <string name="animate_my_location_desc">تفعيل حركة تعديل مجال رؤية الخريطة بالنسبة لموقعي أثناء الملاحة</string>
     <string name="quick_action_auto_zoom_desc">النقر على زر الإجراء سوف يقوم بتشغيل/إيقاف تكبير الخريطة وفقا لسرعتك.</string>
     <string name="quick_action_add_destination_desc">النقر على زر الإجراء سيقوم بإضافة وجهة في مركز الشاشة. الوجهة المعينة مسبقا تصبح النقطة الوسيطة الأخيرة.</string>
     <string name="quick_action_replace_destination_desc">النقر على زر الإجراء سيحل محل الوجهة بالموقع الظاهر على مركز الشاشة.</string>
@@ -2856,7 +2856,7 @@ OsmAnd هو المصدر المفتوح و التي يجري تطويرها بن
     <string name="osmand_extended_description_part5">"ركوب الدراجات الهوائية • يمكنك أن تجد مسارات الدراجات الهوائية على الخريطة • الملاحة في وضع ركوب الدراجات تقترح مسارات دراجات هوائية • يمكنك مشاهدة سرعةك وعلوك • تسجيل GPX يتيح لك تسجيل رحلتك ومشاركتها مع الغير • عن طريق برنامج مساعد اضافي يمكنك  عرض الخطوط الكنتورية والتضاريس"</string>
     <string name="osmand_extended_description_part6">مشي، تنزه، جولة في مدينة • الخريطة تظهر لك ممرات مشي وتنزه • ويكيبيديا بلغتك المفضلة ستخبرك الكثير أثناء جولتك • مواقف نقل عام (حافلة ،ترامواي ،قطار)، بما في ذلك أسماء خطوط النقل تساعدك على التجول في مدينة جديدة • التجول بمساعدة الـGPS يساعد على تحديد طريق وجهتك باستعمال ممرات مشي • يمكنك تسجيل ورفع مسارات GPX ومتابعتها ومشاركنها</string>
     <string name="osmand_extended_description_part8">Osmand تطبيق بمصدر مفتوح، وجاري تطويره بنشاط. يمكن للجميع أن يساهم بالإبلاغ عن الأخطاء، تحسين الترجمة أو تطوير ميزات جديدة. هذا المشروع في تحسين مستمر عبر جميع أشكال تفاعل المطورين والمستخدمين. التقدم المحرز في المشروع يعتمد أيضا على المساهمات المالية لتمويل التطوير واختبار الميزات جديدة. التغطية التقريبية للخريطة وجودتها: • أوروبا الغربية: * * * • أوروبا الشرقية: * * * • روسيا: * * * • أمريكا الشمالية: * * * • أمريكا الجنوبية: * * • آسيا: * * • اليابان وكوريا آند: * * * • الشرق الأوسط: * * • أفريقيا: * * • أنتاركتيكا: * معظم البلدان في جميع أنحاء العالم متاحة للتحميل! احصل على الملاح موثوق بها في بلدك - سواءا في فرنسا، ألمانيا، المكسيك، المملكة المتحدة، إسبانيا، هولندا، الولايات المتحدة الأمريكية، روسيا، البرازيل أو أي دولة أخرى.</string>
-    <string name="osmand_plus_extended_description_part1"/>
+    <string name="osmand_plus_extended_description_part1">"+OsmAnd (توجيهات OSM للملاحة الآلية) تطبيق خريطة وملاحة مع امكانية الوصول إلى بيانات الموقع (OSM) مجاناً وفي جميع أنحاء العالم، وبجودة عالية. استمتع بالملاحة بصوت  والصورة، عرض النقاط المهمة حولك (POI)، وإنشاء وإدارة مسارات GPX باستخدام معلومات عن تصور وعلو الخطوط الكنتورية، خياراً بين القيادة، ركوب الدراجات، وضع المشاة، التعديل على OSM وأكثر من ذلك بكثير. +OsmAnd هو إصدار للتطبيق مدفوع الأجر. قبل شرائه، ادعم المشروع، مول تطوير الميزات الجديدة واحصل على آخر التحديثات. بعض الميزات الرئيسية:"</string>
     <string name="osmand_plus_extended_description_part2">الملاحة • يعمل على الانترنت (سريع) أو في وضع غير متصل (لا رسوم تجوال خارج الوطن) • توجيه صوتي انعطاف بانعطاف (الأصوات المسجلة أو مدرجة) • توجيه مسار اختياري، عرض اسم الشارع، والوقت المقدر للوصول • يدعم نقاط وسيطة خلال مسارك • إعادة تلقائية للتوجيه كلما انحرفت عن الطريق • البحث عن الأماكن حسب العنوان، النوع (مثل: مطعم، فندق، محطة وقود، متحف)، أو حسب الإحداثيات الجغرافية</string>
     <string name="osmand_plus_extended_description_part3">"عرض الخريطة • عرض موقعك والتوجيه  • محاذاة اختيارية للصورة وفق البوصلة أو توجيه الحركة • حفظ أهم أماكنك المفضلة • عرض النقاط المهمة من حولك (POI) • عرض متخصص لبيانات خرائط على الإنترنت، الرؤية من الأقمار الصناعية (من Bing) وتراكب طبقات خرائط مختلفة كالسياحة ومسارات GPX للملاحة وطبقات إضافية مع شفافية قابلة للتعديل • عرض اختياري لأسماء الأماكن باللغة الإنكليزية، اللغة المحلية، أو عبر الإملاء الصوتي"</string>
     <string name="osmand_plus_extended_description_part4">استخدام OSM وبيانات ويكيبيديا • جودة معلومات من أفضل المشاريع التعاونية العالمية • بيانات OSM متاحة لكل بلد أو منطقة • POI ويكيبيديا، الأفضل لمشاهدة المعالم السياحية • التنزيلات مجانية غير محدودة، مباشرة من التطبيق • خرائط فيكتور مدمجة تحدث مرة واحدة في شهر على الأقل • اختر بين بيانات منطقة كاملة أو شبكة الطرق فقط (مثال: سعة اليابان 700 MB في حين 200 MB لشبكة الطرق فقط)</string>
@@ -2876,5 +2876,17 @@ OsmAnd هو المصدر المفتوح و التي يجري تطويرها بن
     <string name="mapillary_menu_edit_text_hint">أكتب اسم المستخدم</string>
     <string name="mapillary_menu_descr_username">عرض صور أضافها مستخدم معين.</string>
     <string name="mapillary_menu_title_username">اسم المستخدم</string>
-    <string name="mapillary_menu_filter_description">يمكنك تصفية الصور حسب اسم المستخدم أو التاريخ.</string>
+    <string name="mapillary_menu_filter_description">يمكنك تصفية الصور حسب مقدمها أو حسب التاريخ. يتم تطبيق عوامل التصفية اذا ما كان التكبير عن كثب فقط.</string>
+    <string name="shared_string_reload">إعادة تحميل</string>
+    <string name="mapillary_menu_descr_tile_cache">إعادة تحميل أجزاء الخريطة لمشاهدة البيانات المحدثة.</string>
+    <string name="mapillary_menu_title_tile_cache">التخزين المؤقت لأجزاء الخريطة</string>
+    <string name="shared_string_reset">إعادة تعيين</string>
+    <string name="store_tracks_in_monthly_directories">تخزين المسارات المسجل في مجلدات شهرية</string>
+    <string name="store_tracks_in_monthly_directories_descrp">تخزين المسارات المسجلة في المجلدات الفرعية لكل تسجيل شهري (مثل 2017-01).</string>
+    <string name="average">متوسط</string>
+    <string name="of">%1$d من %2$d</string>
+    <string name="ascent_descent">صعود/نزول</string>
+    <string name="moving_time">زمن التنقل</string>
+    <string name="range">نطاق</string>
+    <string name="max_min">أقصى/أدنى</string>
     </resources>

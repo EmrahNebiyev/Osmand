@@ -620,7 +620,7 @@ Se aprecia la participación activa, y las contribuciones pueden hacerse directa
     <string name="disable_complex_routing_descr">Desactiva la planificación de ruta de dos fases para la navegación en automóvil</string>
     <string name="disable_complex_routing">Desactivar navegación compleja</string>
     <string name="amenity_type_seamark">Náutico</string>
-    <string name="app_modes_choose_descr">Elige los perfiles visibles en la aplicación</string>
+    <string name="app_modes_choose_descr">Elige los perfiles de uso que se mostrarán en la aplicación</string>
     <string name="app_modes_choose">Perfiles de aplicación</string>
     <string name="map_widget_map_rendering">Renderizado del mapa</string>
     <string name="app_mode_hiking">Senderismo</string>
@@ -717,7 +717,7 @@ Se aprecia la participación activa, y las contribuciones pueden hacerse directa
     <string name="wait_current_task_finished">Espere hasta que termine la tarea actual</string>
     <string name="use_kalman_filter_compass_descr">Reduce el ruido en las lecturas de la brújula pero añade inercia</string>
     <string name="use_kalman_filter_compass">Filtro de Kalman</string>
-    <string name="use_magnetic_sensor_descr">Usa el sensor magnético para determinar el valor de la brújula en vez del sensor de orientación</string>
+    <string name="use_magnetic_sensor_descr">Para la lectura de la brújula, usa el sensor magnético en lugar del sensor de orientación</string>
     <string name="use_magnetic_sensor">Usar sensor magnético</string>
     <string name="other_location">Otra</string>
     <string name="files_limit">Quedan %1$d archivos</string>
@@ -1181,7 +1181,7 @@ Afganistán, Albania, Alemania, Andorra, Angola, Anguila, Antigua y Barbuda, Ant
     <string name="prefs_plugins_descr">Los complementos activan ajustes avanzados y funcionalidades adicionales</string>
     <string name="prefs_plugins">Complementos</string>
     <string name="vector_maps_may_display_faster_on_some_devices">Los mapas vectoriales pueden mostrarse más rápido. Puede no funcionar correctamente en algunos dispositivos.</string>
-    <string name="play_commands_of_currently_selected_voice">Reproduce indicaciones por voz elegidas</string>
+    <string name="play_commands_of_currently_selected_voice">Elige una voz y comprueba las indicaciones por voz</string>
     <string name="native_rendering">Dibujo nativo</string>
     <string name="test_voice_prompts">Probar avisos por voz</string>
     <string name="switch_to_raster_map_to_see">No existe mapa vectorial sin conexión presente en esta ubicación. Puede descargar uno en Opciones (Gestionar mapas), o cambiar al mapa en línea (para esto, activa el complemento de mapas en línea).</string>
@@ -1549,7 +1549,7 @@ Afganistán, Albania, Alemania, Andorra, Angola, Anguila, Antigua y Barbuda, Ant
     <string name="poi_context_menu_delete">Borrar PDI</string>
     <string name="rotate_map_compass_opt">A la brújula</string>
     <string name="rotate_map_bearing_opt">En dirección al movimiento</string>
-    <string name="rotate_map_none_opt">No rotar</string>
+    <string name="rotate_map_none_opt">No rotar (norte arriba)</string>
     <string name="rotate_map_to_bearing_descr">Elige la alineación del mapa</string>
     <string name="rotate_map_to_bearing">Orientación del mapa</string>
     <string name="show_route">Detalle de la ruta</string>
@@ -1877,7 +1877,7 @@ Afganistán, Albania, Alemania, Andorra, Angola, Anguila, Antigua y Barbuda, Ant
     <string name="lang_ta">Tamil</string>
     <string name="lang_eo">Esperanto</string>
     <string name="lang_tl">Tagalo</string>
-    <string name="lang_az">Azerbaiyano</string>
+    <string name="lang_az">Azerí (Azerbaiyán)</string>
     <string name="lang_bpy">Bishnupriya Manipuri</string>
     <string name="lang_ml">Malayalam</string>
     <string name="lang_lb">Luxemburgués</string>
@@ -1954,7 +1954,7 @@ Afganistán, Albania, Alemania, Andorra, Angola, Anguila, Antigua y Barbuda, Ant
     <string name="are_you_sure">¿Estás seguro?</string>
     <string name="unsaved_changes_will_be_lost">Se perderán los cambios no guardados. ¿Continuar?</string>
     <string name="simulate_your_location_stop_descr">Parar simulación de ubicación</string>
-    <string name="simulate_your_location_descr">Simular ubicación, usando una ruta calculada o una grabación GPX</string>
+    <string name="simulate_your_location_descr">Simular la ubicación, usando una ruta calculada o una traza GPX guardada</string>
     <string name="downloads_left_template">Quedan %1$s descargas</string>
     <string name="shared_string_trip_recording">Grabación de viaje</string>
     <string name="shared_string_navigation">Navegación</string>
@@ -1980,7 +1980,7 @@ Afganistán, Albania, Alemania, Andorra, Angola, Anguila, Antigua y Barbuda, Ant
     <string name="favorite_category_select">Elegir categoría</string>
     <string name="srtm_plugin_disabled">Curvas de nivel desactivadas</string>
     <string name="show_free_version_banner">Mostrar anuncio de la versión gratuita</string>
-    <string name="show_free_version_banner_description">Aunque tengas la versión de pago, verás el anuncio de la versión gratuita</string>
+    <string name="show_free_version_banner_description">Muestra el anuncio de la versión gratuita, incluso en la versión de pago</string>
     <string name="downloading_number_of_files">Descargando - %1$d archivo/s</string>
     <string name="hillshade_layer_disabled">Capa de sombreado desactivada</string>
     <string name="buy">COMPRAR</string>
@@ -2325,10 +2325,10 @@ Si necesitas ayuda con la aplicación OsmAnd, contacte con nuestro equipo de sop
     <string name="access_widget_expand">Abrir</string>
     <string name="access_shared_string_navigate_up">Subir</string>
     <string name="access_sort">Ordenar</string>
-    <string name="access_disable_offroute_recalc">No cambiar de ruta al salirme del camino</string>
-    <string name="access_disable_offroute_recalc_descr">Previene el recálculo automático de ruta, al alejarse del camino correcto</string>
-    <string name="access_disable_wrong_direction_recalc">No cambiar de ruta por una dirección equivocada</string>
-    <string name="access_disable_wrong_direction_recalc_descr">Previene el recálculo automático de ruta, al conducir en dirección equivocada</string>
+    <string name="access_disable_offroute_recalc">No recalcular la ruta, al salirme de la misma</string>
+    <string name="access_disable_offroute_recalc_descr">Previene el recálculo automático de la ruta, al alejarse de la misma</string>
+    <string name="access_disable_wrong_direction_recalc">No recalcular la ruta para una dirección opuesta</string>
+    <string name="access_disable_wrong_direction_recalc_descr">Previene el recálculo automático de ruta, al moverse en dirección opuesta</string>
     <string name="access_smart_autoannounce">Aviso automático inteligente</string>
     <string name="access_smart_autoannounce_descr">Notifica sólo cuando se cambia la dirección al destino</string>
     <string name="access_autoannounce_period">Período de aviso automático</string>
@@ -2399,8 +2399,8 @@ Si necesitas ayuda con la aplicación OsmAnd, contacte con nuestro equipo de sop
     <string name="get_started">Empezar</string>
     <string name="update_all_maps_now">¿Quieres actualizar ahora todos los mapas?</string>
     <string name="clear_tile_data">Limpiar todas las teselas</string>
-    <string name="search_my_location">Buscar mi ubicación</string>
-    <string name="no_update_info_desc">Ocultar actualizaciones de nuevas versiones, relacionadas con descuentos de OsmAnd</string>
+    <string name="search_my_location">Encontrar mi ubicación</string>
+    <string name="no_update_info_desc">Omite la búsqueda de nuevas actualizaciones o descuentos relacionados con OsmAnd</string>
     <string name="no_update_info">Ocultar actualizaciones</string>
     <string name="skip_map_downloading">Omitir descargas de mapas</string>
     <string name="skip_map_downloading_desc">Sin mapas descargados. Puedes elegir uno de la lista o descargarlos luego mediante el Menú - %1$s.</string>
@@ -2416,7 +2416,7 @@ Si necesitas ayuda con la aplicación OsmAnd, contacte con nuestro equipo de sop
     <string name="give_permission">Conceder permiso</string>
     <string name="allow_access_location">Permitir acceso a la ubicación</string>
     <string name="first_usage_greeting">Obtén direcciones y descubre lugares nuevos sin conexión a Internet</string>
-    <string name="si_mi_meters">Millas/Metros</string>
+    <string name="si_mi_meters">Millas/metros</string>
     <string name="get_for">Obtener por %1$s</string>
     <string name="get_for_month">Obtener por %1$s al mes</string>
     <string name="osm_live_banner_desc">Obtén descargas ilimitada de mapas y más actualizaciones de mapas por mes: cada semana, día u hora.</string>
@@ -2450,11 +2450,11 @@ Si necesitas ayuda con la aplicación OsmAnd, contacte con nuestro equipo de sop
     <string name="christmas_desc">Anticipando Navidad y Año Nuevo, puedes elegir mostrar el PDI asociado con la Navidad: Árboles navideños, tiendas, etc.</string>
     <string name="christmas_desc_q">¿Mostrar el PDI navideño?</string>
     <string name="save_track_min_speed">Velocidad mínima del registro</string>
-    <string name="save_track_min_speed_descr">Define la velocidad mínima para registrar un punto</string>
-    <string name="save_track_min_distance">Detección del registro de movimiento</string>
-    <string name="save_track_min_distance_descr">Define la distancia mínima de registro entre puntos de ubicación</string>
+    <string name="save_track_min_speed_descr">Filtro: Define la velocidad mínima para registrar un punto</string>
+    <string name="save_track_min_distance">Registro de desplazamiento mínimo</string>
+    <string name="save_track_min_distance_descr">Filtro: Define la distancia mínima de registro entre puntos de ubicación</string>
     <string name="save_track_precision">Precisión mínima del registro</string>
-    <string name="save_track_precision_descr">Define la precisión mínima para registrar un punto</string>
+    <string name="save_track_precision_descr">Filtro: Define la precisión mínima para registrar un punto</string>
     <string name="rendering_attr_contourColorScheme_description">Esquema de color para las curvas de nivel</string>
     <string name="shared_string_continue">Continuar</string>
     <string name="shared_string_pause">Pausar</string>
@@ -2493,7 +2493,7 @@ Si necesitas ayuda con la aplicación OsmAnd, contacte con nuestro equipo de sop
     <string name="wiki_around">Artículos de Wikipedia cercanos</string>
     <string name="legacy_search">Búsqueda clásica</string>
     <string name="show_legacy_search">Mostrar la búsqueda clásica</string>
-    <string name="show_legacy_search_desc">Activa el modo de búsqueda clásica en la lista del panel lateral</string>
+    <string name="show_legacy_search_desc">Añade el modo de búsqueda clásica a la lista del panel lateral</string>
     <string name="routing_attr_allow_motorway_name">Permitir autopistas</string>
     <string name="routing_attr_allow_motorway_description">Permite pasar por autopistas</string>
     <string name="lang_sr_latn">Serbio (latín)</string>
@@ -2796,7 +2796,7 @@ Representa el área: %1$s x %2$s</string>
     <string name="shared_string_in_name">en %1$s</string>
     <string name="shared_string_overview">Resumen</string>
     <string name="animate_my_location">Animar mi ubicación</string>
-    <string name="animate_my_location_desc">Activa la animación de la ubicación durante la navegación</string>
+    <string name="animate_my_location_desc">Activa la ubicación panorámica animada del mapa durante la navegación</string>
     <string name="favorite_group_name">Nombre del grupo</string>
     <string name="change_color">Cambiar color</string>
     <string name="edit_name">Editar nombre</string>
@@ -2821,7 +2821,7 @@ Representa el área: %1$s x %2$s</string>
     <string name="search_favorites">Buscar favoritos</string>
     <string name="restart_search">Reiniciar búsqueda</string>
     <string name="increase_search_radius">Aumentar radio de búsqueda</string>
-    <string name="nothing_found">Nada encontrado :(</string>
+    <string name="nothing_found">¡Nada por aquí! 😞</string>
     <string name="nothing_found_descr">Modifica la consulta de búsqueda o aumenta el radio de búsqueda</string>
     <string name="private_access_routing_req">El destino se ubica en un área de acceso privado. ¿Quieres acceder en este viaje a los caminos privados?</string>
     <string name="mapillary">Mapillary</string>
@@ -2857,4 +2857,13 @@ Representa el área: %1$s x %2$s</string>
     <string name="shared_string_reload">Recargar</string>
     <string name="mapillary_menu_descr_tile_cache">Recarga las teselas para ver la información actualizada.</string>
     <string name="mapillary_menu_title_tile_cache">Caché de teselas</string>
+    <string name="shared_string_reset">Restablecer</string>
+    <string name="store_tracks_in_monthly_directories">Guardar las trazas grabadas en carpetas mensuales</string>
+    <string name="store_tracks_in_monthly_directories_descrp">Guarda las trazas grabadas en subcarpetas por mes de grabación (como 2017-01).</string>
+    <string name="average">Promedio</string>
+    <string name="of">%1$d de %2$d</string>
+    <string name="ascent_descent">Ascenso/Descenso</string>
+    <string name="moving_time">Tiempo moviéndose</string>
+    <string name="max_min">Máx/Min</string>
+    <string name="range">Rango</string>
     </resources>
